@@ -1,0 +1,53 @@
+//ПР5 Н2 В13
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Введення значень a, b та x (не розібрався як без х зробити)
+        System.out.print("Введіть a: ");
+        double a = input.nextDouble();
+
+        System.out.print("Введіть b: ");
+        double b = input.nextDouble();
+
+        System.out.print("Введіть x: ");
+        double x = input.nextDouble();
+
+
+        double f; // результат ф-ії
+
+
+        // Обчислення f(x)
+        if (x >= 0 && x < 5) {
+            // Частина 1 f(x) = 2x + 7
+            f = 2 * x + 7;
+        } else if (x == 5) {
+            // Частина 2 f(x) = 3 * e^(a * x)
+            f = 3 * Math.exp(a * x);
+        } else if (x > 5 && x <= 8) {
+            // Частина 3 f(x) = ln(bx + a)
+            double argument = b * x + a;
+
+            // Логарифм визначений лише для додатного аргументу
+            if (argument > 0) {
+                f = Math.log(argument);
+            } else {
+                System.out.println("Неможливо обчислити ln(bx + a).");
+                input.close();
+                return;
+            }
+        } else {
+            // Якщо x не входить у жоден з проміжків
+            System.out.println("x не належить проміжкам [0; 8].");
+            input.close();
+            return;
+        }
+
+        System.out.printf("Результат: f(x) = %.6f%n", f);
+
+        input.close();
+    }
+}
