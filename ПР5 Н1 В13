@@ -1,0 +1,24 @@
+//ПР5 Н1 В13
+
+public class Main {
+    public static void main(String[] args) {
+        // Значення констант (дано)
+        double c = 0.7;
+        double m = 3 * Math.pow(10, -3); // Math.pow потрібен для обчислння / піднесення до певного степеня
+        double a = 5;
+        double n = 1.2;
+
+        // x = 5 / sqrt(1 + c * e^(-m))
+        double x = 5 / Math.sqrt(1 + c * Math.exp(-m)); //Math.sqrt це корінь, Math.exp(-m)) - "експонента e^(-m)"
+
+        // y = α * (1 - cos(c) / sqrt(n^2 - sin^2(c)))
+        double y = a * (1 - Math.cos(c) / Math.sqrt(Math.pow(n, 2) - Math.pow(Math.sin(c), 2))); //Math.cos і .sin(c) - тригонометрія, косинус
+
+        //
+        System.out.println("Результати:");
+        System.out.printf("c = %.3f, m = %.3e, α = %.1f, n = %.1f%n", c, m, a, n);
+        System.out.printf("x = %.6f%n", x);
+        System.out.printf("y = %.6f%n", y);
+    }
+}
+
